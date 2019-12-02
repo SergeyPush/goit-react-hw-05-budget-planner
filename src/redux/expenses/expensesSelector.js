@@ -1,6 +1,4 @@
-export const getBudget = state => {
-  return state.budget;
-};
+import { getBudget } from "../budget/budgetSelectors";
 
 export const getExpensesList = state => state.expenses;
 
@@ -10,6 +8,4 @@ export const getExpenses = state => {
   }, 0);
 };
 
-export const getBalance = state => {
-  return getBudget(state) - getExpenses(state);
-};
+export const getBalance = state => getBudget(state) - getExpenses(state);

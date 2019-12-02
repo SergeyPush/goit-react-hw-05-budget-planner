@@ -6,7 +6,7 @@ import BudgetForm from "./Budget";
 import ExpenseForm from "./ExpensesForm";
 import ExpensesTable from "./ExpensesTable";
 import Values from "./Values";
-import * as expensesSelector from "../redux/reducers/expenses/expensesSelector";
+import * as expensesSelector from "../redux/expenses/expensesSelector";
 
 const Container = styled.div`
   display: grid;
@@ -26,7 +26,7 @@ const App = ({ expenses }) => {
       <BudgetForm />
       <Values />
       <ExpenseForm />
-      {expenses.length > 0 && <ExpensesTable />}
+      <ExpensesTable />
     </Container>
   );
 };

@@ -1,17 +1,7 @@
-import React from "react";
 import { connect } from "react-redux";
-import T from "prop-types";
 
 import BudgetForm from "./BudgetForm";
-import * as budgetActions from "../../redux/reducers/budget/budgetActions";
-
-const BudgetContainer = ({ onSave }) => {
-  return <BudgetForm onSave={onSave} />;
-};
-
-BudgetContainer.propTypes = {
-  onSave: T.func.isRequired
-};
+import * as budgetActions from "../../redux/budget/budgetActions";
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -19,4 +9,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(BudgetContainer);
+export default connect(null, mapDispatchToProps)(BudgetForm);

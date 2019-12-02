@@ -1,19 +1,8 @@
-import React from "react";
 import { connect } from "react-redux";
-import T from "prop-types";
 import ExpensesTable from "./ExpensesTable";
 
-import * as expensesActions from "../../redux/reducers/expenses/expensesActions";
-import * as expensesSelector from "../../redux/reducers/expenses/expensesSelector";
-
-const ExpensesTableContainer = ({ items, onRemove }) => {
-  return <ExpensesTable items={items} onRemove={onRemove} />;
-};
-
-ExpensesTableContainer.propTypes = {
-  items: T.arrayOf(T.any).isRequired,
-  onRemove: T.func.isRequired
-};
+import * as expensesActions from "../../redux/expenses/expensesActions";
+import * as expensesSelector from "../../redux/expenses/expensesSelector";
 
 const mapStateToProps = state => {
   return {
@@ -27,7 +16,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ExpensesTableContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ExpensesTable);

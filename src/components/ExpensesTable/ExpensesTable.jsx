@@ -19,28 +19,32 @@ const Table = styled.table`
   }
 `;
 
-const ExpensesTable = ({ items = [], onRemove }) => (
-  <Table>
-    <thead>
-      <tr>
-        <th>Expense name</th>
-        <th>Expense amount</th>
-        <th />
-      </tr>
-    </thead>
-    <tbody>
-      {items.map(({ id, name, amount }) => (
-        <tr key={id}>
-          <td>{name}</td>
-          <td>{amount}</td>
-          <td>
-            <Button label="Delete" onClick={() => onRemove(id)} />
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </Table>
-);
+const ExpensesTable = ({ items = [], onRemove }) => {
+  return (
+    items.length > 0 && (
+      <Table>
+        <thead>
+          <tr>
+            <th>Expense name</th>
+            <th>Expense amount</th>
+            <th />
+          </tr>
+        </thead>
+        <tbody>
+          {items.map(({ id, name, amount }) => (
+            <tr key={id}>
+              <td>{name}</td>
+              <td>{amount}</td>
+              <td>
+                <Button label="Delete" onClick={() => onRemove(id)} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    )
+  );
+};
 
 ExpensesTable.propTypes = {
   items: T.arrayOf(T.any).isRequired,
