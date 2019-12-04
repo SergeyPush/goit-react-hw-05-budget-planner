@@ -1,12 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { connect } from "react-redux";
-import T from "prop-types";
 import BudgetForm from "./Budget";
 import ExpenseForm from "./ExpensesForm";
 import ExpensesTable from "./ExpensesTable";
 import Values from "./Values";
-import * as expensesSelector from "../redux/expenses/expensesSelector";
 
 const Container = styled.div`
   display: grid;
@@ -20,7 +17,7 @@ const Container = styled.div`
   margin-right: auto;
 `;
 
-const App = ({ expenses }) => {
+const App = () => {
   return (
     <Container>
       <BudgetForm />
@@ -31,13 +28,4 @@ const App = ({ expenses }) => {
   );
 };
 
-App.propTypes = {
-  expenses: T.arrayOf(T.shape()).isRequired
-};
-const mapStateToProps = state => {
-  return {
-    expenses: expensesSelector.getExpensesList(state)
-  };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;
